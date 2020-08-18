@@ -68,11 +68,11 @@ export default class TwitterTweetEmbed extends Component {
   render() {
     const { isLoading } = this.state
     const { placeholder } = this.props
-    return (
-      <React.Fragment>
-        {isLoading && placeholder}
-        <div ref='embedContainer' />
-      </React.Fragment>
-    )
+    
+    if (isLoading) {
+      return placeholder;
+    }
+
+    return <div ref='embedContainer' />;
   }
 }
